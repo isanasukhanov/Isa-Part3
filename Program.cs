@@ -1,12 +1,1 @@
-﻿using System;
-
-namespace Isa_Part_3
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
+﻿Ameba.Start();

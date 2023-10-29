@@ -7,7 +7,6 @@
 //4) Сравнить название торта с имеюшимися тортами
 
 
-using System;
 
 public static class Cake
 {
