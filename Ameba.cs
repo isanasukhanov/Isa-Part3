@@ -61,9 +61,10 @@ public static class Ameba
                 Console.WriteLine($"Время : {time}, количесвто амеб: {kletkiVOrganizme}");
                 kletkiVOrganizmeKajdie3Chasa[index] = kletkiVOrganizme;
                 vremenaUdvoenie[index] = time; 
+                index += 1;
             }
         }
-        
+
         // Переменная для хранения индекса указанного момента времени 
         int indexVremeni = 0;
         
@@ -77,7 +78,7 @@ public static class Ameba
             }
         }
         int kletki = kletkiVOrganizmeKajdie3Chasa[indexVremeni]; 
-
+        
         Console.WriteLine($"Количество клеток через 6 часов: {kletki}");    
 
     }
