@@ -1,1 +1,1 @@
-﻿Ameba.Start();
+﻿MathFunction1.Start();
