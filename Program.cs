@@ -1,1 +1,1 @@
-﻿MathFunction1.Start();
+﻿Cake.Start();

@@ -4,7 +4,7 @@ public static class MathFunction1
     {
         /* Составить программу вычисления
         значения функции y = 7*2+3x+6 при 
-        любом значени x; */
+        любом значени x; */ 
 
         int x = Convert.ToInt32(Console.ReadLine());
         int re = 7 * 2 + 3 * x + 6;
