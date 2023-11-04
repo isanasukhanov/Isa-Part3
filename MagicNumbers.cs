@@ -14,25 +14,25 @@ public static class MagicNumbers
         не проверяйте следующие условия для текущего числа (используйте continue).
         Если магическое число не найдено во всем массиве, выведите сообщение об этом. */
 
-        int[] magic = new int[20] { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-        int result = 0;
-        int result2 = 0;
-        for (int i = 0; i < magic.Length; i++)
+        int[] magicNumbers = new int[20];
+        Random rand = new Random();
+        for (int i = 0; i < 20; i++)
         {
-            if (magic[i] % 2 == 0)
+            magicNumbers[i] = rand.Next(1, 100);
+        }
+        for (int i = 0; i < 20; i++)
+        {
+            int razdelenie = magicNumbers[i] % 2;
+            if (razdelenie != 0)
             {
-                result += magic[i];
+                continue;
+            }
+            int umnojenie = magicNumbers[i] * 2;
+            if (magicNumbers.Contains(umnojenie))
+            {
+                Console.WriteLine($"Магическое число: {magicNumbers[i]}");
             }
         }
-        Console.WriteLine($"Сумма четных чисел:     {result}");
-     
-        for (int i = 0; i < magic.Length; i++)
-        {
-            if (magic[i] % 2 == 1)
-            {
-                result2 += magic[i];
-            }
-        }
-        Console.WriteLine($"Сумма не четных чисел:  {result2}");
+
     }
 }  
