@@ -14,12 +14,16 @@ public static class MagicNumbers
         не проверяйте следующие условия для текущего числа (используйте continue).
         Если магическое число не найдено во всем массиве, выведите сообщение об этом. */
 
+
+
         int[] magicNumbers = new int[20];
         Random rand = new Random();
+
         for (int i = 0; i < 20; i++)
         {
             magicNumbers[i] = rand.Next(1, 100);
         }
+
         for (int i = 0; i < 20; i++)
         {
             int razdelenie = magicNumbers[i] % 2;
@@ -32,7 +36,16 @@ public static class MagicNumbers
             {
                 Console.WriteLine($"Магическое число: {magicNumbers[i]}");
             }
-        }
+        } 
 
+         /*   
+        for (int i = 0; i < 1; i++) 
+        {   
+            
+            {
+                Console.WriteLine($"Магическое число не найдено во всем массиве. {i}");
+            }
+        }
+         */
     }
 }  

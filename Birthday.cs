@@ -12,10 +12,17 @@ public static class Birthday
         Пример вывода:
         - Поздравляем! Вам 34 года!  */
 
-        Console.Write(" -Год вашего рождения? ");
+        Console.Write($" - Год вашего рождения? ");
         int godRojdenie = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine($" Поздравляем вам {DateTime.Now.Year - godRojdenie} года!!!");
-        Console.WriteLine($"- Месяц? 2");
-        Console.WriteLine($"- День? 5");
+
+        Console.Write($" - Месяц? ");
+        int mesyac =  Convert.ToInt32(Console.ReadLine());
+
+        Console.Write($" - День? "); 
+        int den = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine($" - Поздравляем вам {DateTime.Now.Year - godRojdenie} лет!");
+        Console.WriteLine($" - Месяц {DateTime.Now.Month - mesyac}");
+        Console.WriteLine($" - День {DateTime.Now.Day - den}");
     }
 }
