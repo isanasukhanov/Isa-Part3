@@ -1,1 +1,1 @@
-﻿Cake.Start();
+﻿MagicNumbers.Start();
