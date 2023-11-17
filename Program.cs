@@ -1,1 +1,1 @@
-﻿MagicNumbers.Start();
+MagicNumbers.Start();

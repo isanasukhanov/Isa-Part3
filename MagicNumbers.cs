@@ -33,10 +33,12 @@ public static class MagicNumbers
             // Находим четные числа деляшиеся на 2.
             int razdelenie = randomNumbers[i] % 2;
             // Условия не равно 0.
+
             if (razdelenie != 0)
             {
                 continue;
             }
+          
             // Нечетные числа умножаем на 2.
             int umnojenie = randomNumbers[i] * 2;
            
@@ -52,5 +54,6 @@ public static class MagicNumbers
         {
             Console.WriteLine("Магическое число не найдено во всем массиве. ");
         }
+
     }
 }  
