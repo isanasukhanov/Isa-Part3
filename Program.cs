@@ -1,1 +1,1 @@
-﻿Birthday.Start();
+MagicNumbers.Start();
