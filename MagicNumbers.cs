@@ -15,37 +15,45 @@ public static class MagicNumbers
         Если магическое число не найдено во всем массиве, выведите сообщение об этом. */
 
 
-
-        int[] magicNumbers = new int[20];
+        // Создаем массив из случайных чисел на 20 ячеек. 
+        int[] randomNumbers = new int[20];
+        // Создаем генератор случайных чисел.
         Random rand = new Random();
-
+        // Находим 20 чисел с генератором случайных чисел.
         for (int i = 0; i < 20; i++)
         {
-            magicNumbers[i] = rand.Next(1, 100);
+            // Находим числа от 1 до 100.
+            randomNumbers[i] = rand.Next(1, 100);
         }
-
+ 
+        // Находим 20 чисел с генератором случайных чисел.
+        bool proverkaMagicChislo = false;
         for (int i = 0; i < 20; i++)
         {
-            int razdelenie = magicNumbers[i] % 2;
+            // Находим четные числа деляшиеся на 2.
+            int razdelenie = randomNumbers[i] % 2;
+            // Условия не равно 0.
+
             if (razdelenie != 0)
             {
                 continue;
             }
-            int umnojenie = magicNumbers[i] * 2;
-            if (magicNumbers.Contains(umnojenie))
+          
+            // Нечетные числа умножаем на 2.
+            int umnojenie = randomNumbers[i] * 2;
+           
+            // Контейнируем нечетные числа и умноженные 2 числа
+            if (randomNumbers.Contains(umnojenie))
             {
-                Console.WriteLine($"Магическое число: {magicNumbers[i]}");
+                proverkaMagicChislo = true;
+                // Выводим найденые четные числа.
+                Console.WriteLine($"Магическое число: {randomNumbers[i]}");
             }
         } 
-
-         /*   
-        for (int i = 0; i < 1; i++) 
-        {   
-            
-            {
-                Console.WriteLine($"Магическое число не найдено во всем массиве. {i}");
-            }
+        if (proverkaMagicChislo == false)
+        {
+            Console.WriteLine("Магическое число не найдено во всем массиве. ");
         }
-         */
+
     }
 }  
