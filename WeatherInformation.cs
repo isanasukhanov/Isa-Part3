@@ -106,7 +106,6 @@ public static class WeatherInformation
         Console.WriteLine(visheSrednego.Length);
     }
 
-
 }
 
 
@@ -200,6 +199,4 @@ public static class WeatherInformation
             Console.WriteLine(averageTemperature);
         }
     }
-} */
-
-
+}*/

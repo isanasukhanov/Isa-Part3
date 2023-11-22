@@ -1,1 +1,1 @@
-﻿WeatherInformation.Start();
+WeatherInformation.Start();
