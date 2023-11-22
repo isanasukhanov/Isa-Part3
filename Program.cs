@@ -1,1 +1,1 @@
-MagicNumbers.Start();
+WeatherInformation.Start();
