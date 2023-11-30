@@ -24,31 +24,43 @@
 Вывести количество дней с осадками выше среднего.
 Вывести индексы дней с заморозками и увеличением осадков по сравнению с предыдущим днем. */
 
+using System.Security.Cryptography.X509Certificates;
+
 public static class WeatherInformation
 {
     public static void Start()
     {
         //температуры от -40 до 50, осадки от 0 до 100
         //тебе надо узнать сумму всех значений температур в месяце 
-        
-        int [] temperatures = new int[30];
-        int [] precipitation = new int[30];
+
+        int[] temperatures = new int[30];
+        int[] precipitations = new int[30];
         Random rand = new Random();
 
-         for (int i = 0; i < temperatures.Length; i++)
-        {
-            temperatures[i] = rand.Next(-40, 50);
-            precipitation[i] = rand.Next(0, 100);
-            Console.WriteLine($"Количество осадков за каждый день месяца: {precipitation[i]}");
-            Console.WriteLine($"Температура за каждый день месяца: {temperatures[i]}");
-        }
-        Console.WriteLine();
-        int temperatures1 = 0;
+        Console.WriteLine($"Количество осадков за каждый день месяца");
         for (int i = 0; i < temperatures.Length; i++)
         {
-            temperatures1 += temperatures[i];
+            precipitations[i] = rand.Next(0, 100);
+            Console.Write($"{precipitations[i]},".PadRight(5));
         }
-        int averageTemperature = temperatures1 / temperatures.Length;
+        Console.WriteLine();
+        Console.WriteLine();
+
+        Console.WriteLine($"Температура за каждый день месяца");
+        for (int i = 0; i < temperatures.Length; i++)
+        {
+            temperatures[i] = rand.Next(-40, 50);
+            Console.Write($"{temperatures[i]},".PadRight(5));
+        }
+        Console.WriteLine();
+        Console.WriteLine();
+
+        int totalTemperatures = 0;
+        for (int i = 0; i < temperatures.Length; i++)
+        {
+            totalTemperatures += temperatures[i];
+        }
+        int averageTemperature = totalTemperatures / temperatures.Length;
         Console.WriteLine($"Средняя месечная температура:  {averageTemperature}");
 
         int minTemp = temperatures[0];
@@ -60,39 +72,56 @@ public static class WeatherInformation
             {
                 minTemp = temperatures[i];
             }
-            if (temperatures[i]>maxTemp)
+            if (temperatures[i] > maxTemp)
             {
                 maxTemp = temperatures[i];
             }
         }
         Console.WriteLine($"Температура самого холодного дня:  {minTemp}");
-        Console.WriteLine($"Температура самого теплого дня:  {maxTemp}"); 
+        Console.WriteLine($"Температура самого теплого дня:  {maxTemp}");
 
         Console.Write("Общее количество осадков за месяц: ");
         int allPrecipitation = 0;
-        for (int i = 0; i < precipitation.Length; i++)
+        for (int i = 0; i < precipitations.Length; i++)
         {
-            allPrecipitation += precipitation[i];
+            allPrecipitation += precipitations[i];
         }
         Console.WriteLine(allPrecipitation);
 
-        /* Console.WriteLine("Количество дней с осадками выше среднего");
-            int[] daysWithUpAveragePrecipitation = { };
+        // Вычисляем средний осадок
+        int averagePrecipitation = allPrecipitation / precipitations.Length;
 
-            int x = 0;
-            foreach (int precipitation in precipitationS)
+        Console.Write("Количество дней с осадками выше среднего: ");
+        int daysWithPrecipitationHigherThanAverage = 0;
+        foreach (int precipitation in precipitations)
+        {
+            if (precipitation > averagePrecipitation)
             {
-                if (precipitation > averagePrecipitation)
-                {
-                    x++;
-                    Array.Resize(ref daysWithUpAveragePrecipitation, x);
-                    daysWithUpAveragePrecipitation[x - 1] = precipitation;
-                }
+                daysWithPrecipitationHigherThanAverage++;
             }
-            Console.WriteLine(daysWithUpAveragePrecipitation.Length); */
+        }
+        Console.WriteLine(daysWithPrecipitationHigherThanAverage);
 
-        Console.WriteLine("Количество дней с осадками выше среднего");
+        Console.Write("Индексы дней когда все было плохо: ");
+        
+        int[] indices = {};
 
+        int badDaysCount = 0;
+        for (int i = 1; i < temperatures.Length; i++)
+        {
+            int currentDayPrecipitation = precipitations[i];
+            int currentDayTemperature = temperatures[i];
+            int previousDayPrecipitation = precipitations[i - 1];
+
+            if (currentDayTemperature < 0 && currentDayPrecipitation > previousDayPrecipitation)
+            {
+                badDaysCount++;
+                Array.Resize(ref indices, badDaysCount);
+                indices[badDaysCount - 1] = i;
+            }
+        }
+
+        Console.Write(string.Join(", ", indices));
     }
 
 }
